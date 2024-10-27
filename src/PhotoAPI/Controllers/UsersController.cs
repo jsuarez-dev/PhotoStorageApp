@@ -6,19 +6,14 @@ namespace PhotoAPI.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class UsersController : ControllerBase
+public class UsersController(ILogger<UsersController> logger) : ControllerBase
 {
     private static readonly string[] Summaries = new[]
     {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
-    private readonly ILogger<WeatherForecastController> _logger;
-
-    public UsersController(ILogger<WeatherForecastController> logger)
-    {
-        _logger = logger;
-    }
+    private readonly ILogger<UsersController> _logger = logger;
 
     [HttpGet(Name = "Users")]
     public List<UserModel> Get()
