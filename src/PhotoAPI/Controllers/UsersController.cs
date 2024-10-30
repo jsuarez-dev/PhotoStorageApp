@@ -8,10 +8,6 @@ namespace PhotoAPI.Controllers;
 [Route("[controller]")]
 public class UsersController(ILogger<UsersController> logger) : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
 
     private readonly ILogger<UsersController> _logger = logger;
 
