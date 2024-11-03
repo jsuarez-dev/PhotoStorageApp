@@ -43,16 +43,19 @@ public class PhotoController(ILogger<PhotoController> logger, PhotoApiContext co
         return Ok($"this size is {size}KB");
     }
 
-    public struct dataR
+    public class dataR
     {
-        public string name;
-        public string URL;
-
+        public string name { get; set; }
+        public string URL { get; set; }
     }
     
     [HttpPost("create")]
     public ActionResult<string> PostPhoto(dataR data)
     {
+        if (String.IsNullOrEmpty(data.name) || String.IsNullOrEmpty(data.URL))
+        {
+            return BadRequest($"data is null: {data.name}, {data.URL}");
+        }
        var photo = new PhotoModel() { Name = data.name, Url = data.URL };
        _context.Add(photo);
        _context.SaveChanges();
