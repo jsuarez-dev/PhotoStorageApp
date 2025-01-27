@@ -1,0 +1,17 @@
+@{
+ViewData["Title"] = "Upload";
+}
+
+@model FrontendJS.Models.PhotoModel
+
+<form enctype="multipart/form-data" method="post">
+    <dl>
+        <dt>
+            <label asp-for="PhotoFiles">Photo</label>
+        </dt>
+        <dd>
+            <input asp-for="PhotoFiles" type="file" multiple>
+        </dd>
+    </dl>
+    <input class="btn btn-primary" type="submit" value="Upload">
+</form>
