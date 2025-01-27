@@ -1,18 +1,18 @@
 <script>
   let name = $state("none");
-  async function getName(url) {
+  async function getName() {
     console.log("start");
-    const responce = await fetch(`${url}/name/`);
+    const responce = await fetch(`/user/1`);
     const responceJson = await responce.json();
     console.log("some");
-    name = responceJson.name;
+    name = responceJson.Name;
   }
 </script>
 
 <main>
   <div>
     <p> my name is {name} </p>
-    <button onclick={() => getName("http://localhost:5289")}>get name</button>
+    <button onclick={() => getName()}>get name</button>
   </div>
 
 </main>
